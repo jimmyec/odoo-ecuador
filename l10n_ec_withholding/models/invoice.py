@@ -5,15 +5,10 @@
 
 import logging
 
-from openerp import (
-    api,
-    fields,
-    models
-)
-from openerp.exceptions import (
-    Warning as UserError
-)
-import openerp.addons.decimal_precision as dp
+from odoo import api, fields, models
+from odoo.exceptions import Warning as UserError
+
+import odoo.addons.decimal_precision as dp
 
 # mapping invoice type to journal type
 TYPE2JOURNAL = {

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
-        <template id="report_account_withdrawing">
-            <t t-call="report.html_container">
-                    <t t-foreach="docs" t-as="o">
-                        <t t-call="report.external_layout">
-                        <div class="page">
-                                <span style="font-style: italic;" t-field="o.number"/>
-                        </div>
-                    </t>
+    <template id="report_account_withdrawing">
+        <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                    <div class="page">
+                            <span style="font-style: italic;" t-field="o.number"/>
+                    </div>
                 </t>
             </t>
-        </template>
-    </data>
-</openerp>
+        </t>
+    </template>
+    
+</odoo>

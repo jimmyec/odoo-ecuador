@@ -11,7 +11,7 @@ from lxml import etree
 from lxml.etree import DocumentInvalid
 from jinja2 import Environment, FileSystemLoader
 
-from openerp import fields, models, api
+from odoo import fields, models, api
 
 from .utils import convertir_fecha, get_date_value
 
