@@ -107,7 +107,7 @@ class ResPartner(models.Model):
         string='Persona',
         store=True
     )
-    is_company = fields.Boolean(default=True)
+#     is_company = fields.Boolean(default=True)
 
     def validate_from_sri(self):
         """
