@@ -33,29 +33,29 @@ class ResPartner(models.Model):
         WHERE type_identifier <> 'pasaporte'"""
         self._cr.execute(sql_index)
 
-    @api.multi
-    @api.depends('identifier', 'name')
-    def name_get(self):
-        data = []
-        for partner in self:
-            display_val = u'{0} {1}'.format(
-                partner.identifier or '*',
-                partner.name
-            )
-            data.append((partner.id, display_val))
-        return data
+    # @api.multi
+    # @api.depends('identifier', 'name')
+    # def name_get(self):
+    #     data = []
+    #     for partner in self:
+    #         display_val = u'{0} {1}'.format(
+    #             partner.identifier or '*',
+    #             partner.name
+    #         )
+    #         data.append((partner.id, display_val))
+    #     return data
 
-    @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=80):
-        if not args:
-            args = []
-        if name:
-            partners = self.search([('identifier', operator, name)] + args, limit=limit)  # noqa
-            if not partners:
-                partners = self.search([('name', operator, name)] + args, limit=limit)  # noqa
-        else:
-            partners = self.search(args, limit=limit)
-        return partners.name_get()
+    # @api.model
+    # def name_search(self, name, args=None, operator='ilike', limit=80):
+    #     if not args:
+    #         args = []
+    #     if name:
+    #         partners = self.search([('identifier', operator, name)] + args, limit=limit)  # noqa
+    #         if not partners:
+    #             partners = self.search([('name', operator, name)] + args, limit=limit)  # noqa
+    #     else:
+    #         partners = self.search(args, limit=limit)
+    #     return partners.name_get()
 
     @api.one
     @api.constrains('identifier')
